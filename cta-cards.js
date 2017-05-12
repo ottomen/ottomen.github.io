@@ -36,6 +36,7 @@
                 if (xhr.status === OK) {
                   cartData = JSON.parse(xhr.responseText);
                   console.log(cartData);
+                  resolve('Success!');
                 }
               } else {
                 console.log('Error: ' + xhr.status);
@@ -43,8 +44,7 @@
             }
           });
 
-          promise
-            .then(function () {
+          promise.then(function () {
               console.log('promice');
               if (parseInt(cachedId) !== parseInt(cartData.id)) {
                 ctaCardInstance.deleteCardDOM();
@@ -54,8 +54,7 @@
               } else {
                 console.log('duplicate id');
               }
-            })
-            .catch(function (error) {
+            }).catch(function (error) {
               document.body.querySelector('#player').innerHTML = error.responseText
             });
 
@@ -67,16 +66,16 @@
         addCardDOM: function (cartData) {
           console.log('addCardDOM');
           var template = '<div class="vjs-cta-detail active">';
-          template += '<a href="" target="_blank" class="vjs-cta-js-detail">';
+          template += '<a href="' + cartData.link + '" target="_blank" class="vjs-cta-js-detail">';
 
           template += '<div>';
-          template += '<img src="" class="detail-image">';
-          template += '<h3 class="title"></h3>';
+          template += '<img src="' +  cartData.image + '" class="detail-image">';
+          template += '<h3 class="title">' + cartData.title + '</h3>';
           template += '<div class="price-set js-if-price">';
-          template += '<del class="original-price js-original-price"></del>';
-          template += '<span class="price">$</span>';
+          template += '<del class="original-price js-original-price">' + cartData.originalPrice + '</del>';
+          template += '<span class="price">' + cartData.price + '</span>';
           template += '</div>';
-          template += '<span class="description"></span>';
+          template += '<span class="description">' + cartData.description + '</span>';
           template += '</div>';
           template += '</a>';
           template += '</div>';
