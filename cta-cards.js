@@ -147,8 +147,8 @@
         var t = this.el.querySelector("." + this.$$detailClassName), e = this.el.querySelector("." + this.$$thumbClassName);
         t.classList.remove("active"), e.classList.remove("active")
       }, t.prototype.showThumb = function () {
-        var t = this.el.querySelector("." + this.$$thumbClassName);
-        t.classList.add("active")
+        //var t = this.el.querySelector("." + this.$$thumbClassName);
+        //t.classList.add("active")
       }, t.prototype.getPosition = function () {
         var t = document.querySelector("video").offsetWidth;
         if (!t)throw"CTA: Player Container not found!";
@@ -160,8 +160,8 @@
         var t = this.el.querySelector("." + this.$$detailClassName + " ." + this.$$CloseBtnClassName);
         t.removeEventListener("click", n)
       }, t.prototype.destroyThumb = function () {
-        var t = this.el.querySelector("." + this.$$thumbClassName);
-        t.removeEventListener("click", r)
+        //var t = this.el.querySelector("." + this.$$thumbClassName);
+        //t.removeEventListener("click", r)
       }, t
     }();
     e.Card = c
