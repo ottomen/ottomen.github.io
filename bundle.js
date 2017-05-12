@@ -70,9 +70,9 @@
 
       player.on('timeupdate', overlay.checkOverlay);
       player.on('loadedmetadata', overlay.checkEndTime);
- 
 
-      console.log(window, document);
+
+      console.log(window, document, window.parent);
     };
 
   videojs.plugin('imageOverlay', imageOverlay);
