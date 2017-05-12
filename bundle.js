@@ -72,7 +72,7 @@
       player.on('loadedmetadata', overlay.checkEndTime);
 
 
-      console.log(window, document, window.parent.document);
+      //console.log(window, document, window.parent.document);
     };
 
   videojs.plugin('imageOverlay', imageOverlay);
