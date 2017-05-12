@@ -19,11 +19,9 @@
 
       ctaCardInstance = {
         getCards: function () {
-
           var url = settings.cardUrl;
           var id = '';
           var cartData = [];
-
 
           var promise = new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
@@ -46,6 +44,10 @@
 
           promise.then(function () {
               console.log('promice');
+              console.log('cachedId', cachedId);
+              console.log('cartData.id', cartData.id);
+
+
               if (parseInt(cachedId) !== parseInt(cartData.id)) {
                 ctaCardInstance.deleteCardDOM();
                 ctaCardInstance.addCardDOM(cartData);
@@ -61,10 +63,10 @@
 
         },
         deleteCardDOM: function () {
-          console.log('deleteCardDOM');
+          //console.log('deleteCardDOM');
         },
         addCardDOM: function (cartData) {
-          console.log('addCardDOM');
+          //console.log('addCardDOM');
           var template = '<div class="vjs-cta-detail active">';
           template += '<a href="' + cartData.link + '" target="_blank" class="vjs-cta-js-detail">';
 
@@ -79,7 +81,7 @@
           template += '</div>';
           template += '</a>';
           template += '</div>';
-          console.log('Template', template);
+          //console.log('Template', template);
         }
       };
 
