@@ -14,13 +14,12 @@
 
       ctaCardInstance = {
         getCards: function () {
-
           var url = settings.cardUrl;
 
           console.log('Ajax cart request', url);
 
-          this.deleteCardDOM();
-          this.addCardDOM();
+          ctaCardInstance.deleteCardDOM();
+          ctaCardInstance.addCardDOM();
         },
         deleteCardDOM: function () {
           console.log('deleteCardDOM');
