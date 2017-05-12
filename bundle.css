@@ -35,7 +35,7 @@
 }
 
 .vjs-cta-thumb {
-    display: none;
+    display: none !important;
     bottom: 50px;
     width: 72px;
     height: 72px;
