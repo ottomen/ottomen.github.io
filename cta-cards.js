@@ -43,7 +43,7 @@
           });
 
           promise.then(function () {
-              console.log('promice');
+              console.log('promice', cartData);
               console.log('cachedId', cachedId);
               console.log('cartData.id', cartData.id);
 
