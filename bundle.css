@@ -53,6 +53,7 @@
 }
 
 .vjs-cta-marker {
+    display: none !important;
     bottom: 0;
     z-index: 1;
     width: 3px;
