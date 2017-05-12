@@ -43,11 +43,6 @@
           });
 
           promise.then(function () {
-              console.log('promice', cartData);
-              console.log('cachedId', cachedId);
-              console.log('cartData.id', cartData.id);
-
-
               if (parseInt(cachedId) !== parseInt(cartData.id)) {
                 ctaCardInstance.deleteCardDOM();
                 ctaCardInstance.addCardDOM(cartData);
@@ -66,7 +61,8 @@
           //console.log('deleteCardDOM');
         },
         addCardDOM: function (cartData) {
-          //console.log('addCardDOM');
+          console.log('addCardDOM');
+          console.log(player);
           var template = '<div class="vjs-cta-detail active">';
           template += '<a href="' + cartData.link + '" target="_blank" class="vjs-cta-js-detail">';
 
@@ -82,6 +78,13 @@
           template += '</a>';
           template += '</div>';
           //console.log('Template', template);
+
+          var holderDiv = document.createElement('a');
+          holderDiv.id = 'vjs-image-overlay-holder';
+          holderDiv.style.height = settings.height;
+          holderDiv.style.width = settings.width;
+
+          player.el().appendChild(holderDiv);
         }
       };
 
