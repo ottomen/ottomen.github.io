@@ -83,7 +83,7 @@
     "use strict";
     var n, r, s = i(3), a = i(1), o = i(4), c = function () {
       function t(t, e, i) {
-        this.$$className = "vjs-cta-card", this.$$detailJsHook = "vjs-cta-js-detail", this.$$detailClassName = "vjs-cta-detail active", this.$$CloseBtnClassName = "close-btn", this.$$markerClassName = "vjs-cta-marker", this.$$thumbClassName = "vjs-cta-thumb", this.$$options = s({}, this.$$options, i), this.playerEl = e, this.cardContainer = t, this.selector = "." + this.$$className, this.el = document.createElement("div"), this.el.classList.add(this.$$className), this.el.innerHTML = this.template, this.el.id = this.$$options.id || (new Date).getTime() * Math.random(), this.initDetail(), this.initThumb()
+        this.$$className = "vjs-cta-card", this.$$detailJsHook = "vjs-cta-js-detail", this.$$detailClassName = "vjs-cta-detail", this.$$CloseBtnClassName = "close-btn", this.$$markerClassName = "vjs-cta-marker", this.$$thumbClassName = "vjs-cta-thumb", this.$$options = s({}, this.$$options, i), this.playerEl = e, this.cardContainer = t, this.selector = "." + this.$$className, this.el = document.createElement("div"), this.el.classList.add(this.$$className), this.el.innerHTML = this.template, this.el.id = this.$$options.id || (new Date).getTime() * Math.random(), this.initDetail(), this.initThumb()
       }
 
       return Object.defineProperty(t.prototype, "template", {
