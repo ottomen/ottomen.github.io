@@ -1,5 +1,5 @@
 (function (window, videojs) {
-  var Plugin = videojs.getPlugin('plugin');
+  var Plugin = videojs.getPlugin('Plugin');
 
   var ctaCard = videojs.extend(Plugin, {
 
