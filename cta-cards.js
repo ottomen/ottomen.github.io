@@ -43,19 +43,22 @@
             }
           });
 
-          promise.then(function () {
+          promise()
+            .then(function () {
+              console.log('promice');
+              if (parseInt(cachedId) !== parseInt(cartData.id)) {
+                ctaCardInstance.deleteCardDOM();
+                ctaCardInstance.addCardDOM(cartData);
+                cachedId = parseInt(cartData.id);
+                console.log('ids are not the same');
+              } else {
+                console.log('duplicate id');
+              }
+            })
+            .catch(function (error) {
+              document.body.querySelector('#player').innerHTML = error.responseText
+            });
 
-            if (parseInt(cachedId) !== parseInt(cartData.id)) {
-              ctaCardInstance.deleteCardDOM();
-              ctaCardInstance.addCardDOM(cartData);
-              cachedId = parseInt(cartData.id);
-              console.log('ids are not the same');
-            } else {
-              console.log('duplicate id');
-            }
-          }, function () {
-            console.log('Error');
-          });
 
         },
         deleteCardDOM: function () {
