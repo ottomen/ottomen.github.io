@@ -135,10 +135,10 @@
       }, t.prototype.addThumbEventListener = function (t, e) {
         var i = this;
         void 0 === t && (t = "click");
-        var n = this.el.querySelector("." + this.$$thumbClassName);
-        n.addEventListener(t, function (t) {
-          e(t, i, i.$$options)
-        })
+        //var n = this.el.querySelector("." + this.$$thumbClassName);
+        //n.addEventListener(t, function (t) {
+        //  e(t, i, i.$$options)
+        //})
       }, t.prototype.activate = function () {
         this.cardContainer.setActiveState(!0);
         var t = this.el.querySelector("." + this.$$detailClassName), e = this.el.querySelector("." + this.$$thumbClassName);
