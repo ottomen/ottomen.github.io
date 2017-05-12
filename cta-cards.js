@@ -96,11 +96,11 @@
         }, enumerable: !0, configurable: !0
       }), Object.defineProperty(t.prototype, "thumbTemplate", {
         get: function () {
-          return "\n      <img class='" + this.$$thumbClassName + "' src='" + this.$$options.image + "'\n        style='left: " + this.getPosition() + "%;'>\n    "
+          return ""
         }, enumerable: !0, configurable: !0
       }), Object.defineProperty(t.prototype, "markerTemplate", {
         get: function () {
-          return "\n      <div class='" + this.$$markerClassName + "'\n        style='left: " + this.getPosition() + "%;'></div>\n    "
+          return ""
         }, enumerable: !0, configurable: !0
       }), t.prototype.initDetail = function () {
         var t = this;
