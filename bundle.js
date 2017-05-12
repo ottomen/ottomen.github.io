@@ -70,7 +70,12 @@
 
       player.on('timeupdate', overlay.checkOverlay);
       player.on('loadedmetadata', overlay.checkEndTime);
+      document.on('destroy', function () {
+        console.log('Weeee');
+      });
+
+      console.log(window, document);
     };
 
   videojs.plugin('imageOverlay', imageOverlay);
-}(window, window.videojs));
+}(window, window.videojs, document));
