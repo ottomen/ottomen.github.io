@@ -96,11 +96,13 @@
         }, enumerable: !0, configurable: !0
       }), Object.defineProperty(t.prototype, "thumbTemplate", {
         get: function () {
-          return ""
+          //return "\n      <img class='" + this.$$thumbClassName + "' src='" + this.$$options.image + "'\n        style='left: " + this.getPosition() + "%;'>\n    "
+          return "\n"
         }, enumerable: !0, configurable: !0
       }), Object.defineProperty(t.prototype, "markerTemplate", {
         get: function () {
-          return ""
+          //return "\n      <div class='" + this.$$markerClassName + "'\n        style='left: " + this.getPosition() + "%;'></div>\n    "
+          return "\n    "
         }, enumerable: !0, configurable: !0
       }), t.prototype.initDetail = function () {
         var t = this;
@@ -120,9 +122,9 @@
         }, n = function (t) {
           return i()
         };
-        o.isMobile() ? (e.addEventListener("touchstart", n), e.addEventListener("touchend", function (t) {
-          t.preventDefault()
-        })) : e.addEventListener("click", n)
+        //o.isMobile() ? (e.addEventListener("touchstart", n), e.addEventListener("touchend", function (t) {
+        //  t.preventDefault()
+        //})) : e.addEventListener("click", n)
       }, t.prototype.addCardEventListener = function (t, e) {
         var i = this;
         void 0 === t && (t = "click");
