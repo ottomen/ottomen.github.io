@@ -18,43 +18,32 @@
 
       ctaCardInstance = {
         getCards: function () {
-          console.log('Ajax cart request', url);
 
           var url = settings.cardUrl;
           var id = '';
           var cartData = [];
 
           var promise = new Promise(function (resolve, reject) {
-            //jQuery.get(url)
-            //  .done(function (response) {
-            //    resolve(response)
-            //  })
-            //  .fail(function (err) {
-            //    reject(err)
-            //  })
-
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url);
             xhr.send(null);
-
             xhr.onreadystatechange = function () {
-              var DONE = 4; // readyState 4 means the request is done.
-              var OK = 200; // status 200 is a successful return.
+              var DONE = 4;
+              var OK = 200;
               if (xhr.readyState === DONE) {
-                if (xhr.status === OK)
-                  console.log(xhr.responseText); // 'This is the returned text.'
+                if (xhr.status === OK) {
+                  cartData = JSON.parse(xhr.responseText);
+                  console.log(cartData);
+                }
               } else {
-                console.log('Error: ' + xhr.status); // An error occurred during the request.
+                console.log('Error: ' + xhr.status);
               }
             }
-
-
           });
 
           promise.then(function () {
-
             ctaCardInstance.deleteCardDOM();
-            ctaCardInstance.addCardDOM();
+            ctaCardInstance.addCardDOM(cartData);
           }, function () {
             console.log('Error');
           });
@@ -63,7 +52,7 @@
         deleteCardDOM: function () {
           console.log('deleteCardDOM');
         },
-        addCardDOM: function () {
+        addCardDOM: function (cartData) {
           console.log('addCardDOM');
           var template = '<div class="vjs-cta-detail active">';
           template += '<a href="" target="_blank" class="vjs-cta-js-detail">';
