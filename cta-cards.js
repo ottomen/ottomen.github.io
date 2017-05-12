@@ -79,10 +79,10 @@
           template += '</div>';
           //console.log('Template', template);
 
-          var holderDiv = document.createElement('a');
-          holderDiv.id = 'vjs-image-overlay-holder';
-          holderDiv.style.height = settings.height;
-          holderDiv.style.width = settings.width;
+          var holderDiv = document.createElement('div');
+          holderDiv.id = 'vjs-cta-card';
+          holderDiv.className = 'vjs-cta-card';
+          holderDiv.innerHTML = template;
 
           player.el().appendChild(holderDiv);
         }
