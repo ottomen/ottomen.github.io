@@ -17,7 +17,7 @@
   });
 
   videojs.registerPlugin('cta-card-async', ctaCard);
-})();
+})(window, window.videojs);
 
 //(function (window, videojs) {
 //  var defaults = {
