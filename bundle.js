@@ -70,9 +70,7 @@
 
       player.on('timeupdate', overlay.checkOverlay);
       player.on('loadedmetadata', overlay.checkEndTime);
-      document.on('destroy', function () {
-        console.log('Weeee');
-      });
+ 
 
       console.log(window, document);
     };
