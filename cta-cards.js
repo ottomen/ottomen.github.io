@@ -1,22 +1,19 @@
 (function (window, videojs) {
-  var Plugin = videojs.getPlugin('Plugin');
 
-  var ctaCard = videojs.extend(Plugin, {
+  var ctaCard = function (options) {
+    var settings = videojs.mergeOptions(defaults, options);
+    var player = this;
 
-    constructor: function (player, options) {
-      Plugin.call(this, player, options);
+    console.log('Wee');
+  };
 
-      if (options.customClass) {
-        player.addClass(options.customClass);
-      }
+  var registerPlugin = videojs.plugin;
+  if (typeof videojs.registerPlugin === 'function') {
+    // video.js >= 6.0.0
+    registerPlugin = videojs.registerPlugin;
+  }
+  registerPlugin('cta-card-async', ctaCard);
 
-      player.on('playing', function () {
-        videojs.log('playback began!');
-      });
-    }
-  });
-
-  videojs.registerPlugin('cta-card-async', ctaCard);
 })(window, window.videojs);
 
 //(function (window, videojs) {
