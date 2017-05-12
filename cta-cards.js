@@ -43,7 +43,7 @@
             }
           });
 
-          promise()
+          promise
             .then(function () {
               console.log('promice');
               if (parseInt(cachedId) !== parseInt(cartData.id)) {
