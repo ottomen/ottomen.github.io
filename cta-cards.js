@@ -12,14 +12,53 @@
       var player = this,
         settings = videojs.mergeOptions(defaults, options);
 
+      var promise = new Promise(function (resolve, reject) {
+
+      });
+
       ctaCardInstance = {
         getCards: function () {
-          var url = settings.cardUrl;
-
           console.log('Ajax cart request', url);
 
-          ctaCardInstance.deleteCardDOM();
-          ctaCardInstance.addCardDOM();
+          var url = settings.cardUrl;
+          var id = '';
+          var cartData = [];
+
+          var promise = new Promise(function (resolve, reject) {
+            //jQuery.get(url)
+            //  .done(function (response) {
+            //    resolve(response)
+            //  })
+            //  .fail(function (err) {
+            //    reject(err)
+            //  })
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.send(null);
+
+            xhr.onreadystatechange = function () {
+              var DONE = 4; // readyState 4 means the request is done.
+              var OK = 200; // status 200 is a successful return.
+              if (xhr.readyState === DONE) {
+                if (xhr.status === OK)
+                  console.log(xhr.responseText); // 'This is the returned text.'
+              } else {
+                console.log('Error: ' + xhr.status); // An error occurred during the request.
+              }
+            }
+
+
+          });
+
+          promise.then(function () {
+
+            ctaCardInstance.deleteCardDOM();
+            ctaCardInstance.addCardDOM();
+          }, function () {
+            console.log('Error');
+          });
+
         },
         deleteCardDOM: function () {
           console.log('deleteCardDOM');
