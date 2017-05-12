@@ -10,6 +10,7 @@
     },
     ctaCard = function (options) {
       var player = this,
+        cachedId = '',
         settings = videojs.mergeOptions(defaults, options);
 
       var promise = new Promise(function (resolve, reject) {
@@ -22,6 +23,7 @@
           var url = settings.cardUrl;
           var id = '';
           var cartData = [];
+
 
           var promise = new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
@@ -42,8 +44,15 @@
           });
 
           promise.then(function () {
-            ctaCardInstance.deleteCardDOM();
-            ctaCardInstance.addCardDOM(cartData);
+
+            if (parseInt(cachedId) !== parseInt(cartData.id)) {
+              ctaCardInstance.deleteCardDOM();
+              ctaCardInstance.addCardDOM(cartData);
+              cachedId = parseInt(cartData.id);
+              console.log('ids are not the same');
+            } else {
+              console.log('duplicate id');
+            }
           }, function () {
             console.log('Error');
           });
