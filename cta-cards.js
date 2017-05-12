@@ -20,6 +20,8 @@
         var e = i.duration();
         a.destroyCards(), a.setMetadata({duration: e}), a.createCards(t.cards);
         var r = s.isMobile() ? "touchend" : "click";
+
+        console.log(r, t, e, n);
         a.addCardEventListener(r, function (t, e, n) {
           i.trigger("ctacardclick", n)
         }), a.addThumbEventListener(r, function (t, e, n) {
