@@ -47,7 +47,8 @@
       if (settings.start_time === null)
         settings.start_time = 0;
 
-      player.on('timeupdate', ctaCardInstance.getCards);
+      //player.on('timeupdate', ctaCardInstance.getCards);
+      player.on('play', ctaCardInstance.getCards);
 
       console.log('Player', player);
     };
