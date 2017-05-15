@@ -39,13 +39,14 @@
           });
 
           promise.then(function () {
-            if (parseInt(cachedId) !== parseInt(cartData.id)) {
+            if (cachedId !== cartData.id) {
               ctaCardInstance.deleteCardDOM();
               ctaCardInstance.addCardDOM(cartData);
-              console.log('Cached id: ', cachedId, '  New Id: ', parseInt(cartData.id));
-              cachedId = parseInt(cartData.id);
+              console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
+              console.warn('Not duplicate id');
+              cachedId = cartData.id;
             } else {
-              console.log('Cached id: ', cachedId, '  New Id: ', parseInt(cartData.id));
+              console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
               console.log('duplicate id');
             }
           }).catch(function (error) {
@@ -53,8 +54,10 @@
           });
         },
         deleteCardDOM: function () {
-          //console.log('deleteCardDOM');
-          var card = document.querySelector('.vjs-rb-card');
+          console.log('deleteCardDOM');
+          var card = document.gatElementById('vjs-rb-card');
+          var cartParent = card.parentElement;
+          cartParent.removeChild(card);
         },
         addCardDOM: function (cartData) {
           var template = '<div class="vjs-rb-detail active">';
