@@ -45,6 +45,7 @@
               console.log('Cached id: ', cachedId, '  New Id: ', parseInt(cartData.id));
               cachedId = parseInt(cartData.id);
             } else {
+              console.log('Cached id: ', cachedId, '  New Id: ', parseInt(cartData.id));
               console.log('duplicate id');
             }
           }).catch(function (error) {
