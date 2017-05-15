@@ -42,17 +42,17 @@
                 ctaCardInstance.deleteCardDOM();
                 ctaCardInstance.addCardDOM(cartData);
                 cachedId = parseInt(cartData.id);
+                console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
               } else {
                 console.log('duplicate id');
               }
             }).catch(function (error) {
               document.body.querySelector('#player').innerHTML = error.responseText
             });
-
-
         },
         deleteCardDOM: function () {
           //console.log('deleteCardDOM');
+          var card = document.querySelector('.vjs-rb-card');
         },
         addCardDOM: function (cartData) {
           var template = '<div class="vjs-rb-detail active">';
