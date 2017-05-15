@@ -39,16 +39,15 @@
           });
 
           promise.then(function () {
+            console.log(cartData);
             console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
             if (cachedId !== cartData.id) {
               ctaCardInstance.deleteCardDOM();
               ctaCardInstance.addCardDOM(cartData);
-              console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
-              console.warn('Not duplicate id');
+              console.log('Not duplicate id! Cached id: ', cachedId, '  New Id: ', cartData.id);
               cachedId = cartData.id;
             } else {
-              console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
-              console.log('duplicate id');
+              console.log('Duplicate id! Cached id: ', cachedId, '  New Id: ', cartData.id);
             }
           }).catch(function (error) {
             document.body.querySelector('#player').innerHTML = error.responseText
