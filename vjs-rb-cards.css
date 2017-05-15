@@ -1,25 +1,25 @@
-.video-js.vjs-has-started .vjs-control-bar .vjs-cta-container, .video-js.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar .vjs-cta-container {
+.video-js.vjs-has-started .vjs-control-bar .vjs-rb-container, .video-js.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar .vjs-rb-container {
     visibility: visible
 }
 
-.video-js.vjs-has-started .vjs-control-bar .vjs-cta-container.vjs-cta-container-detail-active .vjs-cta-thumb, .video-js.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar .vjs-cta-container .vjs-cta-thumb {
+.video-js.vjs-has-started .vjs-control-bar .vjs-rb-container.vjs-rb-container-detail-active .vjs-rb-thumb, .video-js.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar .vjs-rb-container .vjs-rb-thumb {
     bottom: 50px;
     opacity: 0;
     -webkit-transition: opacity .2s ease-in;
     transition: opacity .2s ease-in
 }
 
-.video-js.vjs-has-started .vjs-control-bar .vjs-cta-container .vjs-cta-marker {
+.video-js.vjs-has-started .vjs-control-bar .vjs-rb-container .vjs-rb-marker {
     bottom: 36px;
     height: 5px
 }
 
-.video-js.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar .vjs-cta-container .vjs-cta-marker {
+.video-js.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar .vjs-rb-container .vjs-rb-marker {
     height: 0;
     bottom: 0
 }
 
-.vjs-cta-container {
+.vjs-rb-container {
     position: absolute;
     z-index: 2;
     pointer-events: none;
@@ -29,12 +29,12 @@
     visibility: hidden
 }
 
-.vjs-cta-thumb.active {
+.vjs-rb-thumb.active {
     display: inline-block;
     pointer-events: auto
 }
 
-.vjs-cta-thumb {
+.vjs-rb-thumb {
     display: none !important;
     bottom: 50px;
     width: 72px;
@@ -45,14 +45,14 @@
     pointer-events: none
 }
 
-.vjs-cta-marker, .vjs-cta-thumb {
+.vjs-rb-marker, .vjs-rb-thumb {
     position: absolute;
     display: inline-block;
     transform: translateX(-50%);
     cursor: pointer
 }
 
-.vjs-cta-marker {
+.vjs-rb-marker {
     display: none !important;
     bottom: 0;
     z-index: 1;
@@ -61,21 +61,21 @@
     background: #ff0
 }
 
-.vjs-cta-detail.active.menu-active {
+.vjs-rb-detail.active.menu-active {
     margin-left: -150px
 }
 
-.vjs-cta-detail.active, .vjs-cta-thumb.active {
+.vjs-rb-detail.active, .vjs-rb-thumb.active {
     -webkit-transition: opacity .2s ease-in;
     transition: opacity .2s ease-in;
     opacity: 1
 }
 
-.vjs-cta-detail.active {
+.vjs-rb-detail.active {
     pointer-events: auto
 }
 
-.vjs-cta-detail {
+.vjs-rb-detail {
     position: absolute;
     bottom: 50px;
     left: 50%;
@@ -94,13 +94,13 @@
     pointer-events: none
 }
 
-.vjs-cta-detail a {
+.vjs-rb-detail a {
     display: block;
     height: 136px;
     overflow: hidden
 }
 
-.vjs-cta-detail .close-btn {
+.vjs-rb-detail .close-btn {
     position: absolute;
     top: 0;
     right: 0;
@@ -113,7 +113,7 @@
     outline: 0
 }
 
-.vjs-cta-detail .detail-image {
+.vjs-rb-detail .detail-image {
     width: 136px;
     height: 136px;
     object-fit: cover;
@@ -121,14 +121,14 @@
     margin: 0 15px 0 0
 }
 
-.vjs-cta-detail .title {
+.vjs-rb-detail .title {
     margin: -2px 20px 0 0;
     font-size: 16px;
     color: #fff;
     line-height: 1.4
 }
 
-.vjs-cta-detail .description {
+.vjs-rb-detail .description {
     line-height: 1.4;
     font-size: 14px;
     color: #999;
@@ -136,60 +136,64 @@
     display: block
 }
 
-.vjs-cta-detail .price-set {
+.vjs-rb-detail .price-set {
     line-height: 1.4
 }
 
-.vjs-cta-detail .price-set .original-price {
+.vjs-rb-detail .price-set .original-price {
     color: #999;
     font-size: 16px;
     margin-right: 5px
 }
 
-.vjs-cta-detail .price-set .price {
+.vjs-rb-detail .price-set .price {
     color: red;
     font-size: 24px
 }
 
-.vjs-cta-card {
+.vjs-rb-card {
     pointer-events: fill
 }
 
-.vjs-cta-card a {
+.vjs-rb-card a {
     text-decoration: none
 }
 
+.vjs-rb-card .btn {
+
+}
+
 @media screen and (max-width: 440px) {
-    .vjs-cta-detail {
+    .vjs-rb-detail {
         height: 113px;
         padding: 10px
     }
 
-    .vjs-cta-detail a {
+    .vjs-rb-detail a {
         height: 92px
     }
 
-    .vjs-cta-detail .detail-image {
+    .vjs-rb-detail .detail-image {
         width: 92px;
         height: 92px
     }
 
-    .vjs-cta-detail .price-set .price {
+    .vjs-rb-detail .price-set .price {
         font-size: 20px
     }
 
-    .vjs-cta-thumb {
+    .vjs-rb-thumb {
         width: 36px;
         height: 36px
     }
 }
 
 @media screen and (max-width: 320px) {
-    .vjs-cta-detail .price-set .original-price, .vjs-cta-detail .price-set .price, .vjs-cta-detail .title {
+    .vjs-rb-detail .price-set .original-price, .vjs-rb-detail .price-set .price, .vjs-rb-detail .title {
         font-size: 14px
     }
 
-    .vjs-cta-detail .description {
+    .vjs-rb-detail .description {
         font-size: 13px;
         margin-top: 0
     }

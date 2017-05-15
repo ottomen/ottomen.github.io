@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2013 Funny or Die, Inc.
+ *  Copyright (c) 2017 Ottomen
  *  http://www.funnyordie.com
  *  https://github.com/funnyordie/videojs-ctaCard/blob/master/LICENSE.md
  */
@@ -63,8 +63,8 @@
         addCardDOM: function (cartData) {
           console.log('addCardDOM');
           console.log(player);
-          var template = '<div class="vjs-cta-detail active">';
-          template += '<a href="' + cartData.link + '" target="_blank" class="vjs-cta-js-detail">';
+          var template = '<div class="vjs-rb-detail active">';
+          template += '<a href="' + cartData.link + '" target="_blank" class="vjs-rb-js-detail">';
 
           template += '<div>';
           template += '<img src="' +  cartData.image + '" class="detail-image">';
@@ -74,14 +74,15 @@
           template += '<span class="price">' + cartData.price + '</span>';
           template += '</div>';
           template += '<span class="description">' + cartData.description + '</span>';
+          template += '<span class="btn">Buy</span>';
           template += '</div>';
           template += '</a>';
           template += '</div>';
           //console.log('Template', template);
 
           var holderDiv = document.createElement('div');
-          holderDiv.id = 'vjs-cta-card';
-          holderDiv.className = 'vjs-cta-card';
+          holderDiv.id = 'vjs-rb-card';
+          holderDiv.className = 'vjs-rb-card';
           holderDiv.innerHTML = template;
 
           player.el().appendChild(holderDiv);
