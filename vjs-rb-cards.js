@@ -79,7 +79,7 @@
         },
         setAjaxInterval: function () {
           interval = setInterval(function () {
-            getCards();
+            ctaCardInstance.getCards();
           }, 1000);
         }
       };
