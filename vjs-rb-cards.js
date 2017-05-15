@@ -56,9 +56,12 @@
         },
         deleteCardDOM: function () {
           console.log('deleteCardDOM');
-          var card = document.gatElementById('vjs-rb-card');
-          var cartParent = card.parentElement;
-          cartParent.removeChild(card);
+          var card = document.getElementById('vjs-rb-card'),
+            cartParent;
+          if (card !== null) {
+            cartParent = card.parentElement;
+            cartParent.removeChild(card);
+          }
         },
         addCardDOM: function (cartData) {
           var template = '<div class="vjs-rb-detail active">';
