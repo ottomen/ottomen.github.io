@@ -39,6 +39,7 @@
           });
 
           promise.then(function () {
+            console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
             if (cachedId !== cartData.id) {
               ctaCardInstance.deleteCardDOM();
               ctaCardInstance.addCardDOM(cartData);
