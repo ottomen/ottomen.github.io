@@ -13,10 +13,6 @@
         cachedId = '',
         settings = videojs.mergeOptions(defaults, options);
 
-      var promise = new Promise(function (resolve, reject) {
-
-      });
-
       ctaCardInstance = {
         getCards: function () {
           var url = settings.cardUrl;
@@ -33,7 +29,6 @@
               if (xhr.readyState === DONE) {
                 if (xhr.status === OK) {
                   cartData = JSON.parse(xhr.responseText);
-                  console.log(cartData);
                   resolve('Success!');
                 }
               } else {
@@ -47,7 +42,6 @@
                 ctaCardInstance.deleteCardDOM();
                 ctaCardInstance.addCardDOM(cartData);
                 cachedId = parseInt(cartData.id);
-                console.log('ids are not the same');
               } else {
                 console.log('duplicate id');
               }
@@ -61,11 +55,8 @@
           //console.log('deleteCardDOM');
         },
         addCardDOM: function (cartData) {
-          console.log('addCardDOM');
-          console.log(player);
           var template = '<div class="vjs-rb-detail active">';
           template += '<a href="' + cartData.link + '" target="_blank" class="vjs-rb-js-detail">';
-
           template += '<div>';
           template += '<img src="' +  cartData.image + '" class="detail-image">';
           template += '<h3 class="title">' + cartData.title + '</h3>';
@@ -78,13 +69,11 @@
           template += '</div>';
           template += '</a>';
           template += '</div>';
-          //console.log('Template', template);
 
           var holderDiv = document.createElement('div');
           holderDiv.id = 'vjs-rb-card';
           holderDiv.className = 'vjs-rb-card';
           holderDiv.innerHTML = template;
-
           player.el().appendChild(holderDiv);
         }
       };
@@ -94,8 +83,6 @@
 
       //player.on('timeupdate', ctaCardInstance.getCards);
       player.on('play', ctaCardInstance.getCards);
-
-      console.log('Player', player);
     };
 
   videojs.plugin('cta-card-async', ctaCard);
