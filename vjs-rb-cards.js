@@ -11,7 +11,8 @@
     ctaCard = function (options) {
       var player = this,
         cachedId = '',
-        settings = videojs.mergeOptions(defaults, options);
+        settings = videojs.mergeOptions(defaults, options),
+        interval;
 
       ctaCardInstance = {
         getCards: function () {
@@ -32,23 +33,23 @@
                   resolve('Success!');
                 }
               } else {
-                console.log('Error: ' + xhr.status);
+                //console.log('Error: ' + xhr.status);
               }
             }
           });
 
           promise.then(function () {
-              if (parseInt(cachedId) !== parseInt(cartData.id)) {
-                ctaCardInstance.deleteCardDOM();
-                ctaCardInstance.addCardDOM(cartData);
-                console.log('Cached id: ', cachedId, '  New Id: ', parseInt(cartData.id));
-                cachedId = parseInt(cartData.id);
-              } else {
-                console.log('duplicate id');
-              }
-            }).catch(function (error) {
-              document.body.querySelector('#player').innerHTML = error.responseText
-            });
+            if (parseInt(cachedId) !== parseInt(cartData.id)) {
+              ctaCardInstance.deleteCardDOM();
+              ctaCardInstance.addCardDOM(cartData);
+              console.log('Cached id: ', cachedId, '  New Id: ', parseInt(cartData.id));
+              cachedId = parseInt(cartData.id);
+            } else {
+              console.log('duplicate id');
+            }
+          }).catch(function (error) {
+            document.body.querySelector('#player').innerHTML = error.responseText
+          });
         },
         deleteCardDOM: function () {
           //console.log('deleteCardDOM');
@@ -58,7 +59,7 @@
           var template = '<div class="vjs-rb-detail active">';
           template += '<a href="' + cartData.link + '" target="_blank" class="vjs-rb-js-detail">';
           template += '<div>';
-          template += '<img src="' +  cartData.image + '" class="detail-image">';
+          template += '<img src="' + cartData.image + '" class="detail-image">';
           template += '<h3 class="title">' + cartData.title + '</h3>';
           template += '<div class="price-set js-if-price">';
           template += '<del class="original-price js-original-price">' + cartData.originalPrice + '</del>';
@@ -75,6 +76,11 @@
           holderDiv.className = 'vjs-rb-card';
           holderDiv.innerHTML = template;
           player.el().appendChild(holderDiv);
+        },
+        setAjaxInterval: function () {
+          interval = setInterval(function () {
+            getCards();
+          }, 1000);
         }
       };
 
@@ -82,7 +88,8 @@
         settings.start_time = 0;
 
       //player.on('timeupdate', ctaCardInstance.getCards);
-      player.on('play', ctaCardInstance.getCards);
+      player.on('loadedmetadata', ctaCardInstance.getCards);
+      player.on('play', ctaCardInstance.setAjaxInterval);
     };
 
   videojs.plugin('cta-card-async', ctaCard);
