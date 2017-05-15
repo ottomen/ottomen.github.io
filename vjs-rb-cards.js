@@ -41,8 +41,8 @@
               if (parseInt(cachedId) !== parseInt(cartData.id)) {
                 ctaCardInstance.deleteCardDOM();
                 ctaCardInstance.addCardDOM(cartData);
+                console.log('Cached id: ', cachedId, '  New Id: ', parseInt(cartData.id));
                 cachedId = parseInt(cartData.id);
-                console.log('Cached id: ', cachedId, '  New Id: ', cartData.id);
               } else {
                 console.log('duplicate id');
               }
